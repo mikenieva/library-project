@@ -1,0 +1,15 @@
+{{!-- views/books-list.hbs --}}
+
+<h1>Books</h1>
+<a href="/books/create">Crear un libro</a>
+<hr>
+
+{{#each books}}
+  <div>
+    <h3>{{title}}</h3>
+    <p>By: {{author}}</p>
+    <a href="/books/{{id}}">Ver detalles</a>
+    <a href="/books/{{id}}/edit">Edit</a>
+  </div>
+  <hr>
+{{/each}}

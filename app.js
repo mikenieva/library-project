@@ -1,3 +1,4 @@
+// 1. IMPORTACIONES
 require('dotenv').config();
 
 const bodyParser   = require('body-parser');
@@ -9,7 +10,7 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
-
+// 1A. CONFIGURACIONES
 mongoose
   .connect('mongodb://localhost/library-project', {useNewUrlParser: true})
   .then(x => {
@@ -45,14 +46,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
-
+// 2. RUTEO
 const index = require('./routes/index');
 app.use('/', index);
+
+const bookRouter = require('./routes/book.routes')
+app.use('/', bookRouter)
+
 
 
 module.exports = app;
