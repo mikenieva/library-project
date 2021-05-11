@@ -4,12 +4,20 @@
 <a href="/books/create">Crear un libro</a>
 <hr>
 
+
 {{#each books}}
   <div>
     <h3>{{title}}</h3>
     <p>By: {{author}}</p>
     <a href="/books/{{id}}">Ver detalles</a>
-    <a href="/books/{{id}}/edit">Edit</a>
+    <a href="/books/{{id}}/edit">Editar</a>
+
+    <form action="/books/{{id}}/delete" method="POST"> {{!-- <-- add the form  --}}
+      <button>Borrar</button>
+    </form>
+
   </div>
   <hr>
 {{/each}}
+
+

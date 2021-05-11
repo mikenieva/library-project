@@ -72,6 +72,27 @@ router.get('/books', (req, res, next) => {
 })
 
 
+// POST DELETE A BOOK
+
+router.post('/books/:id/delete', (req, res) => {
+  const { id } = req.params
+
+
+  Book.findByIdAndDelete(id)
+    .then(() =>  {
+        res.redirect('/books')
+    })
+    .catch(e => next(e))
+})
+
+
+
+
+
+
+
+
+
 /* GET SINGLE BOOK */
 router.get('/books/:bookId', (req, res) => {
 
